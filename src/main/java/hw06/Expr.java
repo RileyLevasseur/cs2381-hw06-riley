@@ -36,8 +36,26 @@ record Expr(String text) {
             }
 
             // TODO:
-            // if (ch.equals(")")) {
-            //   ...
+            /*
+                                   (2.4.2) To op, assign the popped element
+                                           Pop a number from integer stack and assign it op2
+                                           Pop another number from integer stack and assign it
+                                           to op1
+                                           Calculate op1 op op2 and push the result into the integer
+                                           stack
+                                           Convert into character and push into stack
+                                           Go to the step (2.4)
+    New line character            (2.5)  Print the result after popping from the stack
+                                         STOP
+             */
+            if (ch.equals(")")) {
+                String a2 = stack.pop();
+                String op = stack.pop();
+                String a1 = stack.pop();
+
+                String result = applyOp(a1, op, a2);
+                stack.push(result);
+            }
         }
 
         try {
